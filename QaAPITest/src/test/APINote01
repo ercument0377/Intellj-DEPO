@@ -1,0 +1,72 @@
+ API: Application Programming Interface,
+  Uygulama Programlama Arabirimi (arayüzü) anlamına gelir.
+
+
+Json : JavaScrip object notation: Java Map gibidir.
+Xml : extensible markup language format da kullanılabilir HTML (hypertext language) sintexi kullanılır.
+
+
+
+API için yaygın olarak RestAssured , restful  kütüphaneler  kullanacağız
+
+
+Bir  API olusturdugumuzda url ve endpoint gereklidir.
+API kullanarak databasede yeni datalar olusturabiliriz.(insert)
+API kullanarak databasede bazı dataları  guncelleyebiliriz.(update)
+API kullanarak databasede var dataları silebiliriz.(delete)
+API kullanarak databasede bazı dataları okuyabiliriz.(read/get)
+
+1- insert  -> url
+1- update  -> url
+1- delete  -> url
+1- get  -> url
+
+        HTTP Request Methodlari
+
+        1- GET method: DM'den data almak veya okumak  için kullanılır (Read --> R -> CRUD
+            GET methodu kullanmak için sadece Endpoind (URL) kullanırız
+        2- POST method: DB'ye yeni data eklemek için kullanılır ( Create -->C -- CRUD)
+            POST requesti kullanmak göndermek endpoint (URL) + request Body ihtiyacımız var
+        3- PUT method: DB'de var olan bir datayı guncellemek için kullanılır( Update --> U --CRUD)
+          PUT requesti kullanmak göndermek endpoint (URL) + Fully request Body ihtiyacımız var
+        4- PATCH method: DB'de var olan datayı kısmı olarak güncellemek için kullanılır.( Update --> U --CRUD)
+             PATCH requesti kullanmak göndermek endpoint (URL) + partial request Body ihtiyacımız var
+        5-DELETE method: DB'de var olan datayı silmek için kullanılır.(( Delete --> U --CRUD)
+            DELETE methodu kullanmak için sadece Endpoind (URL) kullanırız
+
+
+
+                  HTTP Statu kodları
+
+            1XX (yüzle başlıyorsa)     :  ruquest alındı fakat islem devam ediyor
+
+            2XX (ikiyüzle başlıyorsa)  : request başarılı bir şekilde alındı ve anladım ve kabul ettim
+                                        (API için herşey yolunda demek. bizim için beklenen bir koddur )
+
+            3XX (üçyüzle başlıyorsa)   :  requeste cevaplamak için extra bir işleme ihtiyaç vardır
+                                         ( eger 300 lü bir şey görürsek yazan kişiden kaynaklanan bir sıkıntı var demektir)
+                                         ( hata bizden kaynaklandığı için menegere söylemeden düzeltmek lazım)
+
+            4XX (dörtyüzle başlıyorsa)  : request yanlış bir sintaksa sahiptir. (yazım hatası var demek) hiçbirşey vermez
+                                        internet adresini kontrol ederiz.
+
+            5XX(beşyüzle başlıyorsa)    : server çökmüş, çalışmıyor demektir.(ben böyle bir 5XX kod aldım böyle bir kod alan var mı
+                                           cevaba göre hareket ederiz)
+
+
+            Mulakat sorusu:
+
+            API testi için ilk nereye bekılır?
+            cvp: statu koduna bakarız. (200 vb) işlem durumu olumlu mu değil mi
+            eger status code 2XX görürsek ardından diğer detaylara bakarız
+
+
+            manuel test için : Postman  kullanırız
+            otomasyon test için :  restAssured kütüphanesini kullanırız
+
+
+
+
+
+
+
